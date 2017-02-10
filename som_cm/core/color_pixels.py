@@ -57,6 +57,7 @@ class ColorPixels:
             image = rgb2hsv(self._image)
         return self._image2pixels(image)
 
+    #此处下采样
     def _image2pixels(self, image):
         if _isGray(image):
             h, w = image.shape

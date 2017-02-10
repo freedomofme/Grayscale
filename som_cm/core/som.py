@@ -10,6 +10,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from np.norm import normVectors
+from cv.image import to32F, rgb2gray
+from io_util.image import saveRGB
 
 
 ## SOM parameter.
@@ -64,6 +66,11 @@ class SOM:
         else:
             return self._nodeImage2D()
 
+    # 新增加
+    def nodeOriginData(self):
+        if self._dimension == 1:
+            return self._nodeOriginData()
+
     ## Return the current time step t.
     def currentStep(self):
         return self._t
@@ -77,6 +84,7 @@ class SOM:
         while self._t < len(self._samples):
             self._train(self._t)
             self._t += 1
+
 
 
     ## Process training step t to t+1.
@@ -108,6 +116,10 @@ class SOM:
             node_image[y, :, :] = self._nodes[:, :]
         return node_image
 
+    # 返回数据，为了灰度化
+    def _nodeOriginData(self):
+        return self._nodes
+
     def _nodeImage2D(self):
         return self._nodes.reshape(self._h, self._h, 3)
 
@@ -119,6 +131,7 @@ class SOM:
             return self._initialNode2D(h)
 
     def _initialNode1D(self, h):
+        #十行三列的二维数组
         return np.random.rand(h, 3)
 
     def _initialNode2D(self, h):
@@ -252,3 +265,68 @@ class SOMPlot:
         self._som.trainStep()
 
         return [image, text]
+
+
+    ## 显示点云图像 manifold in 3D.
+    def plotCloud(self, ax, color_pixels):
+        colors = color_pixels.reshape(-1, 3)
+        plot3d = ax.scatter(colors[:, 0], colors[:, 1], colors[:, 2],
+                    color=colors, s = 2)
+
+        ax.set_xlabel('R', x=10, y=10)
+        ax.set_ylabel('G')
+        ax.set_zlabel('B')
+
+        #坐标轴范围
+        ax.set_zlim3d([-0.1, 1.1])
+        ax.set_ylim3d([-0.1, 1.1])
+        ax.set_xlim3d([-0.1, 1.1])
+
+        #所要显示的标度
+        ax.set_xticks(np.linspace(0.0, 1.0, 2))
+        ax.set_yticks(np.linspace(0.0, 1.0, 2))
+        ax.set_zticks(np.linspace(0.0, 1.0, 2))
+        return plot3d
+
+    def showGrayImage(self, image):
+        nodeOriginData = self._som.nodeOriginData()
+        print len(nodeOriginData)
+
+        image = to32F(image)
+
+        print image.shape
+        print image.dtype
+
+        h = image.shape[0]
+        w = image.shape[1]
+        node_image = np.zeros((h, w), dtype=image.dtype)
+
+        for i in range(h):
+            for j in range(w):
+                smallestValue = 1 << 31
+                smallestIndex = 0
+                for k in range(len(nodeOriginData)):
+                    # node_image[i, j] = 0.3 * image[i, j][0] + 0.59 * image[i, j][1] + 0.11 * image[i, j][2]
+                    temp = self.distance(image[i, j], nodeOriginData[k])
+                    if smallestValue > temp:
+                        smallestValue = temp
+                        smallestIndex = k
+
+                # print smallestIndex
+                node_image[i, j] =  float(smallestIndex) / len(nodeOriginData)
+            print 'true: ' + str(smallestIndex)
+            print i
+
+
+        # temp = rgb2gray(image)
+        # import cv2
+        # cv2.imshow('gray_image',temp)
+        #
+        # cv2.waitKey(0)
+
+        return node_image
+
+
+    def distance(self, tuple1, tuple2):
+        # return (tuple1[0] - tuple2[0]) * (tuple1[0] - tuple2[0]) + (tuple1[1] - tuple2[1]) * (tuple1[1] - tuple2[1]) + (tuple1[2] - tuple2[2]) * (tuple1[2] - tuple2[2])
+        return abs(tuple1[0] - tuple2[0])+ abs(tuple1[1] - tuple2[1]) + abs(tuple1[2] - tuple2[2])

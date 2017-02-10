@@ -7,6 +7,7 @@
 
 import cv2
 from cv.image import *
+from skimage import io
 
 
 def loadGray(file_path):
@@ -20,6 +21,13 @@ def loadRGB(file_path):
     if bgr is None:
         return None
     return bgr2rgb(bgr)
+
+## H
+def loadLab(file_path):
+    bgr = cv2.imread(file_path)
+    if bgr is None:
+        return None
+    return rgb2Lab(bgr2rgb(bgr))
 
 
 def loadRGBA(file_path):

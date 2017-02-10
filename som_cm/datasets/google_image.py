@@ -98,13 +98,15 @@ class GoogleImageLoader:
         #     page_urls = [result["url"] for result in page_data["responseData"]["results"]]
         #     image_urls.extend(page_urls)
 
+
+        # http://www.mocky.io/
         resO = {
             "responseData": [
                 {
-                    "url": "http://news.xinhuanet.com/fashion/2014-07/09/126720969_14047146526251n.jpg"
+                    "url": "http://blog.pluskid.org/wp-content/uploads/2009/06/swiss-roll.png"
                 },
                 {
-                    "url": "http://pic3.nipic.com/20090518/2532848_173327019_2.jpg"
+                    "url": "http://blog.pluskid.org/wp-content/uploads/2009/06/swiss-roll.png"
                 },
                 {
                     "url": "http://www.jvv-group.com/upload/news/images/201404/20140430-17.jpg"

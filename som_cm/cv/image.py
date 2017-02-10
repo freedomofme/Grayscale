@@ -9,6 +9,8 @@
 import numpy as np
 import cv2
 
+from skimage import color
+
 
 ## Convert image into uint8 type.
 def to8U(img):
@@ -97,6 +99,11 @@ def gray2rgba(img):
 def bgr2rgb(img):
     rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     return rgb
+
+# ## RGB to LAB
+# def rgb2lab(img):
+#     lab = color.rgb2lab(img)
+#     return lab
 
 
 ## BGRA to RGBA.

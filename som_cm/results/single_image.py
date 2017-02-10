@@ -8,7 +8,9 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from core.color_pixels import ColorPixels
 from mpl_toolkits.mplot3d import Axes3D
+
 
 from io_util.image import loadRGB
 from results.resu import batchResults, resultFile
@@ -58,7 +60,7 @@ def singleImageResult(image_file):
     font_size = 15
     fig.suptitle("SOM-Color Manifolds for Single Image", fontsize=font_size)
 
-    plt.subplot(231)
+    plt.subplot(331)
     h, w = image.shape[:2]
     plt.title("Original Image: %s x %s" % (w, h), fontsize=font_size)
     plt.imshow(image)
@@ -72,32 +74,48 @@ def singleImageResult(image_file):
 
     som1D_plot = SOMPlot(som1D)
     som2D_plot = SOMPlot(som2D)
-    plt.subplot(232)
+    plt.subplot(332)
     plt.title("SOM 1D", fontsize=font_size)
     # 如果改变updateImage函数的返回值，那么可以用以下语句，代替以下第二行语句。
     # plt.imshow(som1D_plot.updateImage())
     som1D_plot.updateImage()
     plt.axis('off')
 
-    plt.subplot(233)
+    plt.subplot(333)
     plt.title("SOM 2D", fontsize=font_size)
     som2D_plot.updateImage()
     plt.axis('off')
 
 
-    
+    color_pixels = ColorPixels(image)
+    pixels = color_pixels.pixels(color_space="rgb")
+    ax = fig.add_subplot(334, projection='3d')
+    plt.title("cloudPoint", fontsize=font_size)
+    som1D_plot.plotCloud(ax, pixels)
+
+    hist3D = Hist3D(image, num_bins=16)
+    color_samples = hist3D.colorCoordinates()
+    ax = fig.add_subplot(337, projection='3d')
+    plt.title("cloudPoint", fontsize=font_size)
+    som1D_plot.plotCloud(ax, color_samples)
 
 
 
-
-
-    ax1D = fig.add_subplot(235, projection='3d')
+    ax1D = fig.add_subplot(335, projection='3d')
     plt.title("1D in 3D", fontsize=font_size)
     som1D_plot.plot3D(ax1D)
 
-    ax2D = fig.add_subplot(236, projection='3d')
+    ax2D = fig.add_subplot(336, projection='3d')
     plt.title("2D in 3D", fontsize=font_size)
     som2D_plot.plot3D(ax2D)
+
+
+    plt.subplot(338)
+    plt.title("Gray", fontsize=font_size)
+    # 如果改变updateImage函数的返回值，那么可以用以下语句，代替以下第二行语句。
+    plt.imshow(som1D_plot.showGrayImage(image), cmap='gray', vmin = 0, vmax = 1)
+    plt.axis('off')
+
 
     result_file = resultFile("%s_single" % image_name)
     plt.savefig(result_file)

@@ -14,7 +14,12 @@ from results.single_image import singleImageResults
 from results.multi_images import multiImagesResults
 
 if __name__ == '__main__':
-    data_names = ["apple", "banana", "tulip", "sky", "flower"]
+
+
+
+
+
+    data_names = ["apple"]
     num_images = 9
 
     createDatasets(data_names, num_images, update=False)
