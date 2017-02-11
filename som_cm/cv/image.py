@@ -135,6 +135,11 @@ def rgb2Lab(img):
     Lab = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2LAB)
     return Lab
 
+## BGR to Lab.
+def bgr2Lab(img):
+    Lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+    return Lab
+
 
 ## Lab to RGB.
 def Lab2rgb(img):

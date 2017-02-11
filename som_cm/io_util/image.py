@@ -27,7 +27,7 @@ def loadLab(file_path):
     bgr = cv2.imread(file_path)
     if bgr is None:
         return None
-    return rgb2Lab(bgr2rgb(bgr))
+    return bgr2Lab(bgr)
 
 
 def loadRGBA(file_path):
