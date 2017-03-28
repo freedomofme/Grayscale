@@ -52,6 +52,7 @@ class ColorPixels:
 
         if color_space == "Lab":
             image = rgb2Lab(self._image)
+            # print image
 
         if color_space == "hsv":
             image = rgb2hsv(self._image)

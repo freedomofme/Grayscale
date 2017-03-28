@@ -22,8 +22,8 @@ if __name__ == '__main__':
     data_names = ["apple"]
     num_images = 9
 
-    createDatasets(data_names, num_images, update=False)
-    data_ids = range(3)
+    # createDatasets(data_names, num_images, update=False)
+    data_ids = range(10)
     singleImageResults(data_names, data_ids)
 
     data_ids = range(5)

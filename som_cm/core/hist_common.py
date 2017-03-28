@@ -11,13 +11,34 @@ import numpy as np
 def colorCoordinates(color_ids, num_bins, color_range):
     # .T表示转置
     color_ids = np.array(color_ids).T
-    # print(color_ids)
     c_min, c_max = color_range
 
     #把那些x,y,z的【0，15】范围上的数据不精确的还原成0.xx，用来表示RGB颜色的比重
     color_coordinates = c_min + (color_ids * (c_max - c_min)) / float(num_bins - 1.0)
     # print color_coordinates
     return color_coordinates
+
+def colorCoordinates2(color_ids, num_bins, color_range, pixels, _old_colorId):
+    s = set()
+
+    # .T表示转置
+    color_ids = np.array(color_ids).T
+    c_min, c_max = color_range
+
+    color_ids = [tuple(row) for row in color_ids]
+    _old_colorId = [tuple(row) for row in _old_colorId]
+    for id in color_ids:
+        s.add(id)
+
+    newP = np.empty((0,3), float)
+    for index, data in enumerate(_old_colorId):
+        if data in s:
+            newP = np.row_stack((newP, pixels[index]))
+    print '$$$'
+    print len(color_ids)
+    print len(newP)
+    print len(pixels)
+    return newP
 
 
 def colorDensities(hist_bins):

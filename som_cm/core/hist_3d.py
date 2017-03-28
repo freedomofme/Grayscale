@@ -52,6 +52,12 @@ class Hist3D:
         color_range = self._color_range
         return colorCoordinates(color_ids, num_bins, color_range)
 
+    def colorCoordinates2(self):
+        color_ids = self.colorIDs()
+        num_bins = self._num_bins
+        color_range = self._color_range
+        return colorCoordinates2(color_ids, num_bins, color_range, self._pixels, self._old_colorId)
+
     def colorDensities(self):
         return colorDensities(self._hist_bins)
 
@@ -61,11 +67,31 @@ class Hist3D:
     def colorRange(self):
         return self._color_range
 
+    # 原来image是rgb的，经过ColorPixels，先除以255，然后转换成lab，会使得小数变成-127到128的数据，如下
+    # 9.73089905e+01   2.20525265e+00  -1.92381144e+00
     def _computeTargetPixels(self, image, color_space):
         color_pixels = ColorPixels(image)
+        # print color_pixels.pixels()
+        print '***'
         self._pixels = color_pixels.pixels(color_space)
+
+        # bl=self._pixels==[100,0,0]
+        # bl=np.any(bl,axis=1)
+        # ind=np.nonzero(bl)[0]
+        # self._pixels = np.delete(self._pixels,ind,axis=0)
+
+        print '******2'
+        print self._pixels
         self._rgb_pixels = color_pixels.rgb()
 
+
+    # pixels的数据格式为二维数组，二维数组长为N（N=weight*height），3为（R G B）的形式。由weight * height控制换行。
+    # [[ 0.75686282  0.58431375  0.59215689]
+    # [ 0.78039223  0.65882355  0.65098041]
+    # [ 0.56078434  0.54901963  0.54509807]
+    # [ 0.76470596  0.59215689  0.56470591]
+    # [ 0.82352948  0.67450982  0.63921571]
+    #
     def _computeColorRange(self):
         pixels = self._pixels
         #shape[0] 行 shape[1]列
@@ -79,6 +105,7 @@ class Hist3D:
             c_max[ci] = np.max(pixels[:, ci])
 
         self._color_range = [c_min, c_max]
+        print self._color_range
 
     def _computeHistogram(self):
         pixels = self._pixels
@@ -90,23 +117,66 @@ class Hist3D:
 
         color_ids = (num_bins - 1) * (pixels - c_min) / (c_max - c_min)
         color_ids = np.int32(color_ids)
-        np.set_printoptions(threshold=np.inf)
-        # print(color_ids)
+        # 多维数组强制打印全部输出
+        # np.set_printoptions(threshold=np.inf)
+        # print(color_ids) ，如下
+        # [[11 10 10]
+        # [12 12 12]
+        # [ 8  9  9]
+        # [11 10  9]
+        # [12 12 11]
+        # [ 8 10  9]
+        # [10  7  6]
         # print(self._rgb_pixels)
 
         for pi, color_id in enumerate(color_ids):
             hist_bins[color_id[0], color_id[1], color_id[2]] += 1
+            # 用这个色彩还原技度应该更高
             color_bins[color_id[0], color_id[1], color_id[2]] += self._rgb_pixels[pi]
 
         self._hist_bins = hist_bins
+        # print hist_bins 数据如下
+        #[[[  3.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+        #    0.   0.]
+        # [  0.   1.   1.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+        #    0.   0.]
         hist_positive = self._hist_bins > 0.0
 
-        # print(hist_positive)
+        # print(hist_positive) 数据如下
+        #[[[ True False False False False False False False False False False False
+        # False False False False]
+        # [False  True  True False False False False False False False False False
+        #  False False False False]
+
+
         for ci in xrange(3):
             color_bins[hist_positive, ci] /= self._hist_bins[hist_positive]
-
+      # print color_bins 记录了更具体的数据
+      #   [[[ 0.12810458  0.15294118  0.18954249]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]
+      #  [ 0.          0.          0.        ]]
+      #
+      # [[ 0.          0.          0.        ]
+      #  [ 0.15294118  0.20392159  0.24313727]
+      #  [ 0.13725491  0.19607845  0.28235295]
+      #  [ 0.          0.          0.        ]
 
         self._color_bins = color_bins
+        self._old_colorId = color_ids
+
 
         self._clipLowDensity()
 

@@ -31,6 +31,8 @@ _root_dir = os.path.dirname(__file__)
 ## Data directory for the given data_name.
 def dataDir(data_name):
     data_dir = os.path.join(_root_dir, data_name)
+    print data_name
+    print _root_dir
     return data_dir
 
 
@@ -109,7 +111,7 @@ class GoogleImageLoader:
                     "url": "http://blog.pluskid.org/wp-content/uploads/2009/06/swiss-roll.png"
                 },
                 {
-                    "url": "http://www.jvv-group.com/upload/news/images/201404/20140430-17.jpg"
+                    "url": "http://www.jvv-group.com/upload/news/images/201404/20140430-17.png"
                 },
                 {
                     "url": "http://i1.sinaimg.cn/edu/en/2008-09-04/U1593P42T31D44006F915DT20080904115741.jpg"

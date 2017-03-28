@@ -11,13 +11,15 @@ import matplotlib.pyplot as plt
 
 from np.norm import normVectors
 from cv.image import to32F, rgb2gray
+from scipy import spatial
 from io_util.image import saveRGB
+import cv2
 
 
 ## SOM parameter.
 class SOMParam:
     #  @param h           image grid size.
-    #  @param L0          initial parameter for learning restraint.
+    #  @param L0          initial parameter for learning restraint.  0.16
     #  @param lmbd        iteration limit.
     #  @param dimensoin   target dimension for SOM.
     def __init__(self, h=32, L0=0.16, lmbd=0.6, sigma0=0.3, dimension=2):
@@ -42,9 +44,12 @@ class SOM:
         self._h = param.h
         self._dimension = param.dimension
         self._samples = samples
+        print samples
         self._L0 = param.L0
 
         self._nodes = self._initialNode(param.h, param.dimension)
+        print '!!!!!'
+        print  self._nodes
 
         num_samples = self.numSamples()
         self._lmbd = param.lmbd * num_samples
@@ -85,13 +90,26 @@ class SOM:
             self._train(self._t)
             self._t += 1
 
+        # # h
+        while self._t < len(self._samples) * 2:
+            self._train(self._t)
+            self._t += 1
 
+        while self._t < len(self._samples)*3:
+            self._train(self._t)
+            self._t += 1
+        #
+        # while self._t < len(self._samples)*4:
+        #     self._train(self._t)
+        #     self._t += 1
 
     ## Process training step t to t+1.
     def trainStep(self):
         if self._t < len(self._samples):
             self._train(self._t)
             self._t += 1
+
+    # 下面代码写错位置了
 
     # 原来这个函数没有下面的两端代码，不过根据SOM聚类方法，需要多几次迭代，当变化率够小时，方才停止。所以多了两次循环。
     # 同时，这里多循环两次，其实可以用作者在single_image的68行那样，直接采用随机数组的方式来，加快聚类，效果是相当的
@@ -132,7 +150,14 @@ class SOM:
 
     def _initialNode1D(self, h):
         #十行三列的二维数组
-        return np.random.rand(h, 3)
+        # return np.random.rand(h, 3)
+        data = np.random.rand(h, 3)
+        data[:,0] = data[:,0] * 100
+        data[:,1] = data[:,1] * 255 - 128
+        data[:,2] = data[:,2] * 255 - 128
+
+        return data
+
 
     def _initialNode2D(self, h):
         return np.random.rand(h, h, 3).reshape(-1, 3)
@@ -158,7 +183,7 @@ class SOM:
 
     ## Train process.
     def _train(self, t):
-        sample = self._samples[t]
+        sample = self._samples[t % len(self._samples)]
         # print sample
         # bmu
         bmu_id = self._bmu(sample)
@@ -197,7 +222,7 @@ class SOM:
 
     ## Learning restraint: L0 exp (-t / lambda)
     def _learningRestraint(self, t):
-        return self._L0 * np.exp(-t / self._lmbd)
+        return self._L0 * np.exp(-t / self._lmbd) * 1
 
 
 ## Plotting class with matplot.
@@ -214,11 +239,14 @@ class SOMPlot:
     ## Return the updated image.
     def updateImage(self):
         node_image = self._som.nodeImage()
+        print '#####'
+        print node_image
         if self._node_image is None:
-            self._node_image = plt.imshow(node_image)
+            # print node_image
+            self._node_image = plt.imshow(cv2.cvtColor(np.float32(node_image), cv2.COLOR_LAB2RGB) )
 
         else:
-            self._node_image.set_array(node_image)
+            self._node_image.set_array(cv2.cvtColor(node_image, cv2.COLOR_LAB2RGB) )
 
         return self._node_image
 
@@ -238,9 +266,12 @@ class SOMPlot:
     ## Plot color manifold in 3D.
     def plot3D(self, ax):
         node_image = self._som.nodeImage()
+
+        node_image = cv2.cvtColor(np.float32(node_image), cv2.COLOR_LAB2RGB)
+
         colors = node_image.reshape(-1, 3)
         plot3d = ax.scatter(colors[:, 0], colors[:, 1], colors[:, 2],
-                    color=colors)
+                    color=colors,s=0.5)
 
         ax.set_xlabel('R', x=10, y=10)
         ax.set_ylabel('G')
@@ -271,28 +302,41 @@ class SOMPlot:
     def plotCloud(self, ax, color_pixels):
         colors = color_pixels.reshape(-1, 3)
         plot3d = ax.scatter(colors[:, 0], colors[:, 1], colors[:, 2],
-                    color=colors, s = 2)
+                    color=np.float32(colors), s = 2)
 
-        ax.set_xlabel('R', x=10, y=10)
-        ax.set_ylabel('G')
-        ax.set_zlabel('B')
-
-        #坐标轴范围
-        ax.set_zlim3d([-0.1, 1.1])
-        ax.set_ylim3d([-0.1, 1.1])
-        ax.set_xlim3d([-0.1, 1.1])
+        # ax.set_xlabel('R', x=10, y=10)
+        # ax.set_ylabel('G')
+        # ax.set_zlabel('B')
+        #
+        # #坐标轴范围
+        # ax.set_zlim3d([-0.1, 1.1])
+        # ax.set_ylim3d([-0.1, 1.1])
+        # ax.set_xlim3d([-0.1, 1.1])
 
         #所要显示的标度
-        ax.set_xticks(np.linspace(0.0, 1.0, 2))
-        ax.set_yticks(np.linspace(0.0, 1.0, 2))
-        ax.set_zticks(np.linspace(0.0, 1.0, 2))
+        # ax.set_xticks(np.linspace(0.0, 1.0, 2))
+        # ax.set_yticks(np.linspace(0.0, 1.0, 2))
+        # ax.set_zticks(np.linspace(0.0, 1.0, 2))
         return plot3d
 
     def showGrayImage(self, image):
-        nodeOriginData = self._som.nodeOriginData()
-        print len(nodeOriginData)
+        # nodeOriginData = self._som.nodeOriginData()
+        node_image = self._som.nodeImage()
+
+
+        #只需要一行，因为有很多行一样的
+        nodeOriginData = cv2.cvtColor(np.float32(node_image), cv2.COLOR_LAB2RGB)[0, :, :]
+        print nodeOriginData
+        # from sklearn import manifold
+        # mds = manifold.MDS(n_components=1)
+        # Xtrans = mds.fit_transform(nodeOriginData.astype(np.float64))
+        # print Xtrans
 
         image = to32F(image)
+        gray = rgb2gray(image)
+        lmin = np.min(gray)
+        lmax = np.max(gray)
+        print '@@@'
 
         print image.shape
         print image.dtype
@@ -301,19 +345,24 @@ class SOMPlot:
         w = image.shape[1]
         node_image = np.zeros((h, w), dtype=image.dtype)
 
+
         for i in range(h):
             for j in range(w):
                 smallestValue = 1 << 31
                 smallestIndex = 0
                 for k in range(len(nodeOriginData)):
+                    global smallestIndex
+                    global smallestValue
                     # node_image[i, j] = 0.3 * image[i, j][0] + 0.59 * image[i, j][1] + 0.11 * image[i, j][2]
                     temp = self.distance(image[i, j], nodeOriginData[k])
+                    # if i == 100 and j == 100:
+                    #     print str(image[i, j]) + ':' + str(nodeOriginData[k]) + ":" + str(temp)
                     if smallestValue > temp:
                         smallestValue = temp
                         smallestIndex = k
 
                 # print smallestIndex
-                node_image[i, j] =  float(smallestIndex) / len(nodeOriginData)
+                node_image[i, j] =  1 - (float(smallestIndex) / len(nodeOriginData) * (lmax - lmin) + lmin)
             print 'true: ' + str(smallestIndex)
             print i
 
@@ -330,3 +379,126 @@ class SOMPlot:
     def distance(self, tuple1, tuple2):
         # return (tuple1[0] - tuple2[0]) * (tuple1[0] - tuple2[0]) + (tuple1[1] - tuple2[1]) * (tuple1[1] - tuple2[1]) + (tuple1[2] - tuple2[2]) * (tuple1[2] - tuple2[2])
         return abs(tuple1[0] - tuple2[0])+ abs(tuple1[1] - tuple2[1]) + abs(tuple1[2] - tuple2[2])
+
+    def showGrayImage2(self, image, fold = None):
+        # fold = self._som.nodeImage()[0, :, :]
+        if fold == None:
+            fold = self._som.nodeImage()
+        X = fold.reshape((-1, 3))
+        X = np.float32(X)
+
+        h = image.shape[0]
+        w = image.shape[1]
+        node_image = np.zeros((h, w), dtype=np.float)
+        node_image2 = np.zeros((h, w), dtype=np.float)
+
+        from cv.image import to32F, rgb2Lab, rgb2hsv, gray2rgb
+        image = to32F(image)
+        image = rgb2Lab(image)
+
+        from sklearn import manifold
+        n_com = 1
+        mds = manifold.Isomap(n_components=n_com)
+        Xtrans = mds.fit_transform(X)
+
+        import time
+        before = time.time()
+
+        # 重新设置距离矩阵 ----
+        mds.dist_matrix_ = mds.dist_matrix_ ** 0.9
+        G = mds.dist_matrix_ ** 2
+        G *= -0.5
+        Xtrans = mds.kernel_pca_.fit_transform(G)
+        #----
+        # 距离矩阵的列向量的均值
+        MeanLc = []
+        for row in range(len(mds.dist_matrix_[0])):
+            MeanLc.append(np.mean(mds.dist_matrix_[row,:]))
+        MeanLc = np.array(MeanLc)
+
+
+        #预计算特征向量除以特征值的根号
+        #  n_com等于1就不循环了
+        # for i in range(n_com):
+        import math
+        coleighVector = [mds.kernel_pca_.alphas_[:, 0] / math.sqrt(mds.kernel_pca_.lambdas_[0]) * -0.5]
+        print '--------------'
+        print X
+        print '--------------'
+        print Xtrans
+        min = 1 << 31
+        max = -1 << 31
+        Cdistance = np.empty(len(mds.dist_matrix_))
+        kdTree = spatial.cKDTree(X)
+
+        dict = {}
+        for i in range(h):
+            for j in range(w):
+                # global min
+                # global max
+                Cx = image[i][j][0]
+                Cy = image[i][j][1]
+                Cz = image[i][j][2]
+
+                # 查找缓存
+                val = dict.get(tuple(image[i,j]), None)
+                if val != None:
+                    node_image[i,j] = val
+                    continue
+
+                # 点到其他landmark 的距离
+                k = 1
+                distance,index = kdTree.query([Cx,Cy,Cz], k=k)
+
+                # for col in range(len(mds.dist_matrix_)):
+                #     smallestV = mds.dist_matrix_[index[0], col] + distance[0]
+                #     for kindex in range(k-1):
+                #         if smallestV > mds.dist_matrix_[index[kindex+1], col] + distance[kindex+1]:
+                #             smallestV = mds.dist_matrix_[index[kindex+1], col] + distance[kindex+1]
+                #     Cdistance.append(smallestV ** 2)
+                #     print col
+
+
+                # 最初版本，根据最近的点计算, 不加+ distance
+                Cdistance = (mds.dist_matrix_[index,:] + distance) ** 2
+
+                # Cdistance0 = (mds.dist_matrix_[index[0],:] + distance[0])
+                # Cdistance1 = (mds.dist_matrix_[index[1],:] + distance[1])
+                # Cdistance2 = (mds.dist_matrix_[index[2],:] + distance[2])
+                # Cdistance3 = (mds.dist_matrix_[index[3],:] + distance[3])
+                # Cdistance4 = (mds.dist_matrix_[index[4],:] + distance[4])
+
+                # for ii in range(len(mds.dist_matrix_)):
+                #     Cdistance[ii] = self.findmin(mds.dist_matrix_[index[0],ii] + distance[0], mds.dist_matrix_[index[1],ii] + distance[1], mds.dist_matrix_[index[2],ii] + distance[2])
+
+
+                Cdistance = Cdistance ** 2
+
+                theta = Cdistance - MeanLc
+                theta = np.asmatrix(theta)
+                # print theta
+                node_image[i,j] = (np.asmatrix(coleighVector) * theta.T)[0,0]
+                dict[tuple(image[i,j])] = node_image[i,j]
+
+                if node_image[i,j] < min:
+                    min = node_image[i,j]
+                if node_image[i,j] > max:
+                    max = node_image[i,j]
+
+            # print i
+        print min
+        print max
+        print node_image
+        print 'cost time :' + str(time.time() - before)
+        for i in range(h):
+            for j in range(w):
+                node_image[i, j] =  (node_image[i, j] - min) / float((max - min))
+                node_image2[i,j] = 1 - node_image[i, j]
+
+
+        return node_image, node_image2
+
+    def findmin(self, a, b, c):
+        return min(a,b,c)
+    # def findmin(self, a, b):
+    #     return min(a,b)
