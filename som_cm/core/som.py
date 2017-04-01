@@ -90,14 +90,30 @@ class SOM:
             self._train(self._t)
             self._t += 1
 
-        # # h
-        while self._t < len(self._samples) * 2:
-            self._train(self._t)
-            self._t += 1
 
-        while self._t < len(self._samples)*3:
-            self._train(self._t)
-            self._t += 1
+        # # # h
+        # while self._t < len(self._samples) * 2:
+        #     self._train(self._t)
+        #     self._t += 1
+        #
+        # while self._t < len(self._samples)*3:
+        #     self._train(self._t)
+        #     self._t += 1
+
+        # while self._t < len(self._samples) * 4:
+        #     self._train(self._t)
+        #     self._t += 1
+        #
+        # while self._t < len(self._samples)*5:
+        #     self._train(self._t)
+        #     self._t += 1
+        # while self._t < len(self._samples) *6:
+        #     self._train(self._t)
+        #     self._t += 1
+        #
+        # while self._t < len(self._samples)*7:
+        #     self._train(self._t)
+        #     self._t += 1
         #
         # while self._t < len(self._samples)*4:
         #     self._train(self._t)
@@ -150,14 +166,7 @@ class SOM:
 
     def _initialNode1D(self, h):
         #十行三列的二维数组
-        # return np.random.rand(h, 3)
-        data = np.random.rand(h, 3)
-        data[:,0] = data[:,0] * 100
-        data[:,1] = data[:,1] * 255 - 128
-        data[:,2] = data[:,2] * 255 - 128
-
-        return data
-
+        return np.random.rand(h, 3)
 
     def _initialNode2D(self, h):
         return np.random.rand(h, h, 3).reshape(-1, 3)
@@ -239,14 +248,11 @@ class SOMPlot:
     ## Return the updated image.
     def updateImage(self):
         node_image = self._som.nodeImage()
-        print '#####'
-        print node_image
         if self._node_image is None:
-            # print node_image
-            self._node_image = plt.imshow(cv2.cvtColor(np.float32(node_image), cv2.COLOR_LAB2RGB) )
+            self._node_image = plt.imshow(node_image)
 
         else:
-            self._node_image.set_array(cv2.cvtColor(node_image, cv2.COLOR_LAB2RGB) )
+            self._node_image.set_array(node_image)
 
         return self._node_image
 
@@ -266,26 +272,23 @@ class SOMPlot:
     ## Plot color manifold in 3D.
     def plot3D(self, ax):
         node_image = self._som.nodeImage()
-
-        node_image = cv2.cvtColor(np.float32(node_image), cv2.COLOR_LAB2RGB)
-
         colors = node_image.reshape(-1, 3)
         plot3d = ax.scatter(colors[:, 0], colors[:, 1], colors[:, 2],
-                    color=colors,s=0.5)
+                    color=colors, s = 3)
 
-        ax.set_xlabel('R', x=10, y=10)
-        ax.set_ylabel('G')
-        ax.set_zlabel('B')
+        # ax.set_xlabel('R', x=10, y=10)
+        # ax.set_ylabel('G')
+        # ax.set_zlabel('B')
 
         #坐标轴范围
-        ax.set_zlim3d([-0.1, 1.1])
-        ax.set_ylim3d([-0.1, 1.1])
-        ax.set_xlim3d([-0.1, 1.1])
+        ax.set_zlim3d([0, 1])
+        ax.set_ylim3d([-0, 1])
+        ax.set_xlim3d([-0, 1])
 
         #所要显示的标度
-        ax.set_xticks(np.linspace(0.0, 1.0, 2))
-        ax.set_yticks(np.linspace(0.0, 1.0, 2))
-        ax.set_zticks(np.linspace(0.0, 1.0, 2))
+        ax.set_xticks(np.linspace(0.0, 1.0, 3))
+        ax.set_yticks(np.linspace(0.0, 1.0, 3))
+        ax.set_zticks(np.linspace(0.0, 1.0, 3))
         return plot3d
 
     ## Animation function for FuncAnimation.
@@ -302,21 +305,24 @@ class SOMPlot:
     def plotCloud(self, ax, color_pixels):
         colors = color_pixels.reshape(-1, 3)
         plot3d = ax.scatter(colors[:, 0], colors[:, 1], colors[:, 2],
-                    color=np.float32(colors), s = 2)
+                    color=np.float32(colors), s = 10)
 
         # ax.set_xlabel('R', x=10, y=10)
         # ax.set_ylabel('G')
         # ax.set_zlabel('B')
-        #
-        # #坐标轴范围
-        # ax.set_zlim3d([-0.1, 1.1])
-        # ax.set_ylim3d([-0.1, 1.1])
-        # ax.set_xlim3d([-0.1, 1.1])
 
-        #所要显示的标度
-        # ax.set_xticks(np.linspace(0.0, 1.0, 2))
-        # ax.set_yticks(np.linspace(0.0, 1.0, 2))
-        # ax.set_zticks(np.linspace(0.0, 1.0, 2))
+        #坐标轴范围
+        # ax.set_zlim3d([-0.05, 1.05])
+        # ax.set_ylim3d([-0.05, 1.05])
+        # ax.set_xlim3d([-0.05, 1.05])
+        ax.set_zlim3d([0, 1])
+        ax.set_ylim3d([-0, 1])
+        ax.set_xlim3d([-0, 1])
+
+        # 所要显示的标度
+        ax.set_xticks(np.linspace(0.0, 1.0, 3))
+        ax.set_yticks(np.linspace(0.0, 1.0, 3))
+        ax.set_zticks(np.linspace(0.0, 1.0, 3))
         return plot3d
 
     def showGrayImage(self, image):
@@ -447,7 +453,7 @@ class SOMPlot:
                     continue
 
                 # 点到其他landmark 的距离
-                k = 1
+                k = 5
                 distance,index = kdTree.query([Cx,Cy,Cz], k=k)
 
                 # for col in range(len(mds.dist_matrix_)):
@@ -460,7 +466,7 @@ class SOMPlot:
 
 
                 # 最初版本，根据最近的点计算, 不加+ distance
-                Cdistance = (mds.dist_matrix_[index,:] + distance) ** 2
+                # Cdistance = (mds.dist_matrix_[index,:] + distance) ** 2
 
                 # Cdistance0 = (mds.dist_matrix_[index[0],:] + distance[0])
                 # Cdistance1 = (mds.dist_matrix_[index[1],:] + distance[1])
@@ -468,8 +474,8 @@ class SOMPlot:
                 # Cdistance3 = (mds.dist_matrix_[index[3],:] + distance[3])
                 # Cdistance4 = (mds.dist_matrix_[index[4],:] + distance[4])
 
-                # for ii in range(len(mds.dist_matrix_)):
-                #     Cdistance[ii] = self.findmin(mds.dist_matrix_[index[0],ii] + distance[0], mds.dist_matrix_[index[1],ii] + distance[1], mds.dist_matrix_[index[2],ii] + distance[2])
+                for ii in range(len(mds.dist_matrix_)):
+                    Cdistance[ii] = self.findmin(mds.dist_matrix_[index[0],ii] + distance[0], mds.dist_matrix_[index[1],ii] + distance[1], mds.dist_matrix_[index[2],ii] + distance[2])
 
 
                 Cdistance = Cdistance ** 2
@@ -498,6 +504,8 @@ class SOMPlot:
 
         return node_image, node_image2
 
+    def findmin(self, a, b, c, d,e):
+        return min(a,b,c,d,e)
     def findmin(self, a, b, c):
         return min(a,b,c)
     # def findmin(self, a, b):

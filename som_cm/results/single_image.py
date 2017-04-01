@@ -5,7 +5,6 @@
 #  @author      tody
 #  @date        2015/08/31
 
-import cv2
 import os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,7 +12,7 @@ from core.color_pixels import ColorPixels
 from mpl_toolkits.mplot3d import Axes3D
 
 
-from io_util.image import loadRGB, loadLab
+from io_util.image import loadRGB
 from results.resu import batchResults, resultFile
 from core.hist_3d import Hist3D
 from core.som import SOMParam, SOM, SOMPlot
@@ -21,12 +20,10 @@ from som_cm.plot.window import showMaximize
 
 
 ## Setup SOM in 1D and 2D for the target image.
-def setupSOM(image, random_seed=100, num_samples=1000):
+def setupSOM(image, random_seed=100, num_samples=2000):
     np.random.seed(random_seed)
 
-    hist3D = Hist3D(image, num_bins=64, alpha = 0.1, color_space='Lab')
-
-    #bin中的数据还原
+    hist3D = Hist3D(image, num_bins=16)
     color_samples = hist3D.colorCoordinates()
 
     # 原来代码是这样的: len(color_samples) - 1, 但是我认为不用减1
@@ -37,20 +34,27 @@ def setupSOM(image, random_seed=100, num_samples=1000):
     # 测试了以下代码，效果几乎一样
     # samples = color_samples
 
+    # 删除像素点
+    # bl=samples==[255,255,255]
+    # bl=np.any(bl,axis=1)
+    # ind=np.nonzero(bl)[0]
+    # samples = np.delete(samples,ind,axis=0)
+    # print len(samples)
+    #
+    # bl=samples==[254,255,255]
+    # bl=np.any(bl,axis=1)
+    # ind=np.nonzero(bl)[0]
+    # samples = np.delete(samples,ind,axis=0)
+
+
+
     #1000
     print len(samples)
-    print '&&'
 
-    bl=samples==[100,0,0]
-    bl=np.any(bl,axis=1)
-    ind=np.nonzero(bl)[0]
-    samples = np.delete(samples,ind,axis=0)
-    print len(samples)
-
-    param1D = SOMParam(h=256, dimension=1)
+    param1D = SOMParam(h=64, dimension=1)
     som1D = SOM(samples, param1D)
 
-    param2D = SOMParam(h=8, dimension=2)
+    param2D = SOMParam(h=32, dimension=2)
     som2D = SOM(samples, param2D)
     return som1D, som2D
 
@@ -62,17 +66,9 @@ def singleImageResult(image_file):
 
     image = loadRGB(image_file)
 
-
-    # image = loadLab(image_file)
-
-    # image[0] = image[0] / 255.0 * 100
-    # image[1] = image[1] - 128
-    # image[2] = image[2] - 128
-    # print  image
-
     som1D, som2D = setupSOM(image)
 
-    fig = plt.figure(figsize=(10, 7))
+    fig = plt.figure(figsize=(12, 10))
     fig.subplots_adjust(left=0.05, bottom=0.05, right=0.95, top=0.9, wspace=0.1, hspace=0.2)
 
     font_size = 15
@@ -105,42 +101,27 @@ def singleImageResult(image_file):
     plt.axis('off')
 
 
-    color_pixels = ColorPixels(loadRGB(image_file))
+    color_pixels = ColorPixels(image)
     pixels = color_pixels.pixels(color_space="rgb")
     ax = fig.add_subplot(334, projection='3d')
     plt.title("cloudPoint", fontsize=font_size)
     som1D_plot.plotCloud(ax, pixels)
 
-    hist3D = Hist3D(image, num_bins=16, color_space='Lab')
-
+    hist3D = Hist3D(image, num_bins=16)
     color_samples = hist3D.colorCoordinates()
-
-    print '将lab变成rgb----'
-    # print color_samples
-    # print len(color_samples)
-
-    img = np.zeros([1,len(color_samples),3],dtype=np.float32)
-    for i in range(len(color_samples)):
-        img[0][i] = color_samples[i]
-    from cv.image import Lab2rgb
-    temp = Lab2rgb(img)
-    # print temp
-
-
     ax = fig.add_subplot(337, projection='3d')
     plt.title("cloudPoint", fontsize=font_size)
-    som1D_plot.plotCloud(ax, temp[0])
+    som1D_plot.plotCloud(ax, color_samples)
 
 
 
     ax1D = fig.add_subplot(335, projection='3d')
     plt.title("1D in 3D", fontsize=font_size)
     som1D_plot.plot3D(ax1D)
-    #
+
     ax2D = fig.add_subplot(336, projection='3d')
     plt.title("2D in 3D", fontsize=font_size)
     som2D_plot.plot3D(ax2D)
-
 
     plt.subplot(338)
     plt.title("Gray", fontsize=font_size)
@@ -156,7 +137,7 @@ def singleImageResult(image_file):
 
 
     result_file = resultFile("%s_single" % image_name)
-    plt.savefig(result_file, dpi=200)
+    plt.savefig(result_file)
     #showMaximize()
 
 
