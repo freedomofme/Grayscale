@@ -388,22 +388,26 @@ class SOMPlot:
 
     def showGrayImage2(self, image, fold = None):
         # fold = self._som.nodeImage()[0, :, :]
+        from cv.image import to32F, rgb2Lab, rgb2hsv, gray2rgb
         if fold == None:
             fold = self._som.nodeImage()
+            fold = to32F(fold * 255)
+            fold = rgb2Lab(fold)
         X = fold.reshape((-1, 3))
         X = np.float32(X)
+
 
         h = image.shape[0]
         w = image.shape[1]
         node_image = np.zeros((h, w), dtype=np.float)
         node_image2 = np.zeros((h, w), dtype=np.float)
 
-        from cv.image import to32F, rgb2Lab, rgb2hsv, gray2rgb
+
         image = to32F(image)
         image = rgb2Lab(image)
 
         from sklearn import manifold
-        n_com = 1
+        n_com = 4
         mds = manifold.Isomap(n_components=n_com)
         Xtrans = mds.fit_transform(X)
 
@@ -411,7 +415,7 @@ class SOMPlot:
         before = time.time()
 
         # 重新设置距离矩阵 ----
-        mds.dist_matrix_ = mds.dist_matrix_ ** 0.9
+        mds.dist_matrix_ = mds.dist_matrix_ ** 0.7
         G = mds.dist_matrix_ ** 2
         G *= -0.5
         Xtrans = mds.kernel_pca_.fit_transform(G)
@@ -453,7 +457,7 @@ class SOMPlot:
                     continue
 
                 # 点到其他landmark 的距离
-                k = 5
+                k = 3
                 distance,index = kdTree.query([Cx,Cy,Cz], k=k)
 
                 # for col in range(len(mds.dist_matrix_)):

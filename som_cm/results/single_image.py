@@ -54,7 +54,7 @@ def setupSOM(image, random_seed=100, num_samples=2000):
     param1D = SOMParam(h=64, dimension=1)
     som1D = SOM(samples, param1D)
 
-    param2D = SOMParam(h=32, dimension=2)
+    param2D = SOMParam(h=16, dimension=2)
     som2D = SOM(samples, param2D)
     return som1D, som2D
 
@@ -134,7 +134,7 @@ def singleImageResult(image_file):
     plt.subplot(339)
     plt.title("Gray", fontsize=font_size)
     plt.imshow(b, cmap='gray', vmin = 0, vmax = 1)
-
+    plt.axis('off')
 
     result_file = resultFile("%s_single" % image_name)
     plt.savefig(result_file)
