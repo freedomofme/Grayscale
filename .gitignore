@@ -63,6 +63,5 @@ som_cm/.cache/*
 # Doxygen directory
 doxygen/api_doc/*
 doxygen/*.bat
-*.png
 
 main2.py

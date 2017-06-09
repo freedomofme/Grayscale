@@ -13,14 +13,14 @@
 
 #### 输入图像：
 
-![](som_cm/datasets/apple/apple_0.png)
+![](./som_cm/datasets/apple/apple_0.png)
 
 #### 输出图像：
-![](som_cm/results/apple_0.png)
-![](som_cm/results/apple_0!.png)
+![](./som_cm/results/apple_0.png)
+![](./som_cm/results/apple_0!.png)
 
 #### 所有结果：
-![](som_cm/results/result_all.png)
+![](./som_cm/results/result_all.png)
 
 感谢
 ===
