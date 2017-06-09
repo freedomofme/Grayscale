@@ -2,179 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3246add4-6627-48f4-8a11-fbc33aa7a664" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/doxygen/doxygen_config" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/setup.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/animation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_5_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/apple_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/multi_images.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/resu.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/single_image.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/sky_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/sky_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/sky_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/sky_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/tulip_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/tulip_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=128/tulip_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/animation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_5_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/apple_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/multi_images.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/resu.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/single_image.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/sky_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/sky_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/sky_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/sky_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/tulip_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/tulip_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/k=3bin=32/tulip_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_5_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_6_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_7_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_8_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/apple_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/sky_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/sky_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/sky_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/sky_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/tulip_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/tulip_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results/tulip_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results的副本/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results的副本/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results的副本/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results的副本/apple_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results的副本/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results的副本/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/results的副本/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/animation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_5_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/apple_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/multi_images.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/resu.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/single_image.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/sky_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/sky_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/sky_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/sky_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/tulip_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/tulip_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次/tulip_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/animation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_5_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/apple_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/multi_images.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/resu.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/single_image.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/sky_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/sky_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/sky_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/sky_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/tulip_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/tulip_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.5距离/tulip_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/animation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_5_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/apple_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/multi_images.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/resu.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/single_image.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/sky_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/sky_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/sky_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/sky_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/tulip_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/tulip_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，0.8距离/tulip_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/animation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_5_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/apple_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/multi_images.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/resu.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/single_image.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/sky_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/sky_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/sky_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/sky_multi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/tulip_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/tulip_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/修正流形，循环3次，1.2距离/tulip_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/随机采点/apple_01_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/随机采点/apple_0_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/随机采点/apple_10_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/随机采点/apple_1_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/随机采点/apple_2_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/随机采点/apple_3_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/随机采点/apple_4_single.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/som_cm/随机采点/apple_5_single.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/core/color_pixels.py" afterPath="$PROJECT_DIR$/som_cm/core/color_pixels.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/datasets/google_image.py" afterPath="$PROJECT_DIR$/som_cm/datasets/google_image.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/core/hist_3d.py" afterPath="$PROJECT_DIR$/som_cm/core/hist_3d.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/io_util/image.py" afterPath="$PROJECT_DIR$/som_cm/io_util/image.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/main.py" afterPath="$PROJECT_DIR$/som_cm/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/main2.py" afterPath="$PROJECT_DIR$/som_cm/main2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/results/multi_images.py" afterPath="$PROJECT_DIR$/som_cm/results/multi_images.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/results/resu.py" afterPath="$PROJECT_DIR$/som_cm/results/resu.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/results/single_image.py" afterPath="$PROJECT_DIR$/som_cm/results/single_image.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/core/som.py" afterPath="$PROJECT_DIR$/som_cm/core/som.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/som_cm/.idea/workspace.xml" afterPath="$PROJECT_DIR$/som_cm/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SOM-ColorManifolds-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -201,10 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="single_image.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="single_image.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/som_cm/results/single_image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.7599119">
+            <state vertical-scroll-proportion="0.0">
               <caret line="110" column="43" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
               <folding>
                 <element signature="e#145#154#0" expanded="true" />
@@ -235,13 +65,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.9046563">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apple_0!.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/som_cm/results/apple_0!.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -263,6 +100,7 @@
         <option value="$PROJECT_DIR$/som_cm/datasets/google_image.py" />
         <option value="$PROJECT_DIR$/som_cm/core/som.py" />
         <option value="$PROJECT_DIR$/som_cm/results/single_image.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -334,42 +172,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SOM-ColorManifolds-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SOM-ColorManifolds-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="som_cm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="results" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SOM-ColorManifolds-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SOM-ColorManifolds-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="som_cm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="io_util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -383,8 +185,16 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
   </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/som_cm/results" />
       <recent name="$PROJECT_DIR$/som_cm/datasets/apple" />
     </key>
   </component>
@@ -659,9 +469,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32980132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -672,8 +482,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20958512" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3615894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3615894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -901,19 +711,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/som_cm/datasets/apple/apple_0.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/som_cm/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/som_cm/.idea/misc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32647464">
@@ -930,14 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.610687">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/som_cm/main2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -950,14 +739,6 @@
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1015,11 +796,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/som_cm/results/single_image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7599119">
+        <state vertical-scroll-proportion="0.0">
           <caret line="110" column="43" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
           <folding>
             <element signature="e#145#154#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/som_cm/plot/window.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3741403">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/som_cm/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14030261">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/som_cm/datasets/apple/apple_0.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/som_cm/results/apple_0.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/som_cm/results/apple_0!.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85858583">
+          <caret line="25" column="53" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9046563">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
