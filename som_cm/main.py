@@ -15,16 +15,12 @@ from results.multi_images import multiImagesResults
 
 if __name__ == '__main__':
 
-
-
-
-
     data_names = ["apple"]
-    num_images = 9
+    num_images = 5
 
     # createDatasets(data_names, num_images, update=False)
-    data_ids = range(10)
+    data_ids = range(num_images)
     singleImageResults(data_names, data_ids)
 
-    data_ids = range(5)
-    multiImagesResults(data_names, data_ids)
+    # data_ids = range(7)
+    # multiImagesResults(data_names, data_ids)

@@ -32,7 +32,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from io_util.image import loadRGB, loadLab,saveGray
 import numpy as np
 
-image = loadLab('datasets/apple/apple_55.png')
+name = 'apple_52.png'
+image = loadLab('datasets/apple/' + name)
 image = (1.0 / 255.0) * np.float32(image)
 # print '---'
 # from core.color_pixels import ColorPixels
@@ -40,6 +41,8 @@ image = (1.0 / 255.0) * np.float32(image)
 # temp = color_pixels.pixels('Lab')
 # print temp
 
+print image
+print image.shape[1]
 
 img = np.zeros([image.shape[0],image.shape[1]],dtype=np.float32)
 # for ii in  range(100):
@@ -53,10 +56,11 @@ for i in range(image.shape[0]):
 from cv.image import rgb
 img = rgb(img)
 print img * 255
+import matplotlib.pyplot as plt
 
 
+# plt.imshow(img, cmap='gray', vmin = 0, vmax = 255)
+# plt.show()
+# cv2.imwrite('test.png', img * 255)
+plt.imsave('''./''' + name + '''.png''', img, cmap='gray',vmin = 0, vmax = 1)
 
-cv2.imshow('gray_image', img)
-cv2.imwrite('test.png', img * 255)
-
-cv2.waitKey(0)

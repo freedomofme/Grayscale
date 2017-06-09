@@ -23,7 +23,7 @@ import httplib2
 import cv2
 import matplotlib.pyplot as plt
 
-from io_util.image import loadRGB, saveRGB
+from som_cm.io_util.image import loadRGB, saveRGB
 
 _root_dir = os.path.dirname(__file__)
 

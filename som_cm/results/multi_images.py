@@ -18,7 +18,7 @@ from results.resu import resultFile, batchDataGroup
 
 
 ### Setup SOM in 1D and 2D for the target color samples.
-def setupSOM(color_samples, random_seed=100, num_samples=1000):
+def setupSOM(color_samples, random_seed=100, num_samples=4000):
     np.random.seed(random_seed)
 
     random_ids = np.random.randint(len(color_samples) - 1, size=num_samples)
@@ -27,7 +27,7 @@ def setupSOM(color_samples, random_seed=100, num_samples=1000):
     param1D = SOMParam(h=64, dimension=1)
     som1D = SOM(samples, param1D)
 
-    param2D = SOMParam(h=32, dimension=2)
+    param2D = SOMParam(h=16, dimension=2)
     som2D = SOM(samples, param2D)
     return som1D, som2D
 
@@ -37,6 +37,8 @@ def multiImagesResult(data_name, data_ids):
     num_cols = len(data_ids)
     num_rows = 2
 
+    import time
+    before = time.time()
     fig = plt.figure(figsize=(12, 6))
     fig.subplots_adjust(left=0.05, bottom=0.05, right=0.95, top=0.9, wspace=0.1, hspace=0.2)
 
@@ -61,6 +63,7 @@ def multiImagesResult(data_name, data_ids):
         plt.axis('off')
 
         col_id += 1
+        print  col_id
 
     color_samples = np.array(color_samples)
     print color_samples.shape
@@ -72,6 +75,7 @@ def multiImagesResult(data_name, data_ids):
 
     print "  - Train 2D"
     som2D.trainAll()
+    print time.time() - before
 
     som1D_plot = SOMPlot(som1D)
     som2D_plot = SOMPlot(som2D)
@@ -94,11 +98,11 @@ def multiImagesResult(data_name, data_ids):
     som2D_plot.updateImage()
     plt.axis('off')
 
-    col_id += 1
-    ax2D = plt.subplot2grid((num_rows, num_cols), (1, col_id),
-                            projection='3d', aspect='equal')
-    plt.title("2D in 3D", fontsize=font_size)
-    som2D_plot.plot3D(ax2D)
+    # col_id += 1
+    # ax2D = plt.subplot2grid((num_rows, num_cols), (1, col_id),
+    #                         projection='3d', aspect='equal')
+    # plt.title("2D in 3D", fontsize=font_size)
+    # som2D_plot.plot3D(ax2D)
 
     result_file = resultFile("%s_multi" % data_name)
     plt.savefig(result_file)
@@ -110,7 +114,7 @@ def multiImagesResults(data_names, data_ids):
                    multiImagesResult, "SOM (multi images)")
 
 if __name__ == '__main__':
-    data_names = ["apple", "banana", "tulip", "sky", "flower"]
-    data_ids = [0, 1, 2, 3, 4]
+    data_names = ["apple"]
+    data_ids = [0, 1, 2, 3]
 
     multiImagesResults(data_names, data_ids)

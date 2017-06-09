@@ -6,7 +6,7 @@
 #  @date        2015/07/18
 
 import cv2
-from cv.image import *
+from som_cm.cv.image import *
 from skimage import io
 
 

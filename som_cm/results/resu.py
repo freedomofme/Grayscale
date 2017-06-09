@@ -6,7 +6,7 @@
 #  @date        2015/08/20
 
 import os
-from datasets.google_image import dataFile
+from som_cm.datasets.google_image import dataFile
 
 _root_dir = os.path.dirname(__file__)
 
@@ -32,6 +32,7 @@ def batchResults(data_names, data_ids, batch_func, batch_name):
         for data_id in data_ids:
             print "Data ID: %s" % data_id
             image_file = dataFile(data_name, data_id)
+
             batch_func(image_file)
 
 

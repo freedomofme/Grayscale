@@ -8,11 +8,13 @@
 
 import numpy as np
 
-from core.color_pixels import ColorPixels
-from core.hist_common import *
+from som_cm.core.color_pixels import ColorPixels
+from som_cm.core.hist_common import *
 
 
-## Implementation of 3D color histograms.
+
+
+
 class Hist3D:
     ## Constructor
     #  @param image          input image.
@@ -70,7 +72,7 @@ class Hist3D:
     # 原来image是rgb的，经过ColorPixels，先除以255，然后转换成lab，会使得小数变成-127到128的数据，如下
     # 9.73089905e+01   2.20525265e+00  -1.92381144e+00
     def _computeTargetPixels(self, image, color_space):
-        color_pixels = ColorPixels(image)
+        color_pixels = ColorPixels(image,num_pixels = 2000)
         # print color_pixels.pixels()
         print '***'
         self._pixels = color_pixels.pixels(color_space)

@@ -8,7 +8,7 @@
 
 import numpy as np
 
-from cv.image import to32F, rgb2Lab, rgb2hsv, gray2rgb
+from som_cm.cv.image import to32F, rgb2Lab, rgb2hsv, gray2rgb
 
 
 ## Implementation of color pixels.

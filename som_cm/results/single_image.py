@@ -8,33 +8,27 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-from core.color_pixels import ColorPixels
+from som_cm.core.color_pixels import ColorPixels
 from mpl_toolkits.mplot3d import Axes3D
 
 
-from io_util.image import loadRGB
-from results.resu import batchResults, resultFile
-from core.hist_3d import Hist3D
-from core.som import SOMParam, SOM, SOMPlot
-from som_cm.plot.window import showMaximize
-
+from som_cm.io_util.image import loadRGB
+from som_cm.results.resu import batchResults, resultFile
+from som_cm.core.hist_3d import Hist3D
+from som_cm.core.som import SOMParam, SOM, SOMPlot
 
 ## Setup SOM in 1D and 2D for the target image.
 def setupSOM(image, random_seed=100, num_samples=2000):
     np.random.seed(random_seed)
 
     hist3D = Hist3D(image, num_bins=16)
-    color_samples = hist3D.colorCoordinates()
+    # 为了灰度化而生成流形，所以不需要采用hist3D.colorCoordinates()
+    # samples = hist3D.colorCoordinates()
 
-    # 原来代码是这样的: len(color_samples) - 1, 但是我认为不用减1
-    random_ids = np.random.randint(len(color_samples), size=num_samples)
-    # 同时我觉得这里不用再采样1000了，因为之前已经采样了，保证不会大于1000，这样做反而认为造成数据冗余, 在ColorPixels.py中
-    samples = color_samples[random_ids]
+    samples = hist3D._pixels
+    print len(hist3D._pixels)
 
-    # 测试了以下代码，效果几乎一样
-    # samples = color_samples
-
-    # 删除像素点
+    # 删除白色像素点
     # bl=samples==[255,255,255]
     # bl=np.any(bl,axis=1)
     # ind=np.nonzero(bl)[0]
@@ -45,7 +39,6 @@ def setupSOM(image, random_seed=100, num_samples=2000):
     # bl=np.any(bl,axis=1)
     # ind=np.nonzero(bl)[0]
     # samples = np.delete(samples,ind,axis=0)
-
 
 
     #1000
@@ -61,16 +54,20 @@ def setupSOM(image, random_seed=100, num_samples=2000):
 
 ## Demo for the single image file.
 def singleImageResult(image_file):
+    print image_file
     image_name = os.path.basename(image_file)
     image_name = os.path.splitext(image_name)[0]
 
     image = loadRGB(image_file)
+    import time
+    start = time.time()
 
     som1D, som2D = setupSOM(image)
 
     fig = plt.figure(figsize=(12, 10))
     fig.subplots_adjust(left=0.05, bottom=0.05, right=0.95, top=0.9, wspace=0.1, hspace=0.2)
 
+    print time.time() - start
     font_size = 15
     fig.suptitle("SOM-Color Manifolds for Single Image", fontsize=font_size)
 
@@ -114,7 +111,6 @@ def singleImageResult(image_file):
     som1D_plot.plotCloud(ax, color_samples)
 
 
-
     ax1D = fig.add_subplot(335, projection='3d')
     plt.title("1D in 3D", fontsize=font_size)
     som1D_plot.plot3D(ax1D)
@@ -128,8 +124,12 @@ def singleImageResult(image_file):
 
     # 如果改变updateImage函数的返回值，那么可以用以下语句，代替以下第二行语句。
     a,b = som2D_plot.showGrayImage2(image)
+
     plt.imshow(a, cmap='gray', vmin = 0, vmax = 1)
     plt.axis('off')
+    plt.imsave('''./''' + image_name + '''.png''', a, cmap='gray',vmin = 0, vmax = 1)
+    plt.imsave('''./''' + image_name + '''!.png''', b, cmap='gray',vmin = 0, vmax = 1)
+
 
     plt.subplot(339)
     plt.title("Gray", fontsize=font_size)
@@ -146,7 +146,7 @@ def singleImageResults(data_names, data_ids):
     batchResults(data_names, data_ids, singleImageResult, "SOM (single image)")
 
 if __name__ == '__main__':
-    data_names = ["apple", "banana", "tulip", "sky", "flower"]
-    data_ids = [0, 1, 2]
+    data_names = ["apple"]
+    data_ids = range(9)
 
     singleImageResults(data_names, data_ids)

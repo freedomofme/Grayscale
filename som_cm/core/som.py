@@ -9,10 +9,9 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-from np.norm import normVectors
-from cv.image import to32F, rgb2gray
+from som_cm.np.norm import normVectors
+from som_cm.cv.image import to32F, rgb2gray
 from scipy import spatial
-from io_util.image import saveRGB
 import cv2
 
 
@@ -44,12 +43,12 @@ class SOM:
         self._h = param.h
         self._dimension = param.dimension
         self._samples = samples
-        print samples
+        # print samples
         self._L0 = param.L0
 
         self._nodes = self._initialNode(param.h, param.dimension)
         print '!!!!!'
-        print  self._nodes
+        # print  self._nodes
 
         num_samples = self.numSamples()
         self._lmbd = param.lmbd * num_samples
@@ -388,9 +387,12 @@ class SOMPlot:
 
     def showGrayImage2(self, image, fold = None):
         # fold = self._som.nodeImage()[0, :, :]
-        from cv.image import to32F, rgb2Lab, rgb2hsv, gray2rgb
+        from som_cm.cv.image import to32F, rgb2Lab, rgb2hsv, gray2rgb
+        image = to32F(image)
+        image = rgb2Lab(image)
         if fold == None:
             fold = self._som.nodeImage()
+            print fold * 255
             fold = to32F(fold * 255)
             fold = rgb2Lab(fold)
         X = fold.reshape((-1, 3))
@@ -402,12 +404,8 @@ class SOMPlot:
         node_image = np.zeros((h, w), dtype=np.float)
         node_image2 = np.zeros((h, w), dtype=np.float)
 
-
-        image = to32F(image)
-        image = rgb2Lab(image)
-
         from sklearn import manifold
-        n_com = 4
+        n_com = 30
         mds = manifold.Isomap(n_components=n_com)
         Xtrans = mds.fit_transform(X)
 
@@ -415,7 +413,7 @@ class SOMPlot:
         before = time.time()
 
         # 重新设置距离矩阵 ----
-        mds.dist_matrix_ = mds.dist_matrix_ ** 0.7
+        mds.dist_matrix_ = mds.dist_matrix_ ** 1.4
         G = mds.dist_matrix_ ** 2
         G *= -0.5
         Xtrans = mds.kernel_pca_.fit_transform(G)
@@ -432,20 +430,18 @@ class SOMPlot:
         # for i in range(n_com):
         import math
         coleighVector = [mds.kernel_pca_.alphas_[:, 0] / math.sqrt(mds.kernel_pca_.lambdas_[0]) * -0.5]
-        print '--------------'
-        print X
-        print '--------------'
-        print Xtrans
-        min = 1 << 31
-        max = -1 << 31
+        # print '--------------'
+        # print X
+        # print '--------------'
+        # print Xtrans
+        min_my = 1 << 31
+        max_my = -1 << 31
         Cdistance = np.empty(len(mds.dist_matrix_))
         kdTree = spatial.cKDTree(X)
 
         dict = {}
         for i in range(h):
             for j in range(w):
-                # global min
-                # global max
                 Cx = image[i][j][0]
                 Cy = image[i][j][1]
                 Cz = image[i][j][2]
@@ -472,14 +468,33 @@ class SOMPlot:
                 # 最初版本，根据最近的点计算, 不加+ distance
                 # Cdistance = (mds.dist_matrix_[index,:] + distance) ** 2
 
+                CdistanceAll = np.array((mds.dist_matrix_[index[0],:] + distance[0]))
+                for kIndex in range(1, k):
+                    CdistanceAll = np.vstack((CdistanceAll, mds.dist_matrix_[index[kIndex],:] + distance[kIndex]))
+
+                Cdistance = CdistanceAll.min(axis=0)
+
                 # Cdistance0 = (mds.dist_matrix_[index[0],:] + distance[0])
                 # Cdistance1 = (mds.dist_matrix_[index[1],:] + distance[1])
                 # Cdistance2 = (mds.dist_matrix_[index[2],:] + distance[2])
                 # Cdistance3 = (mds.dist_matrix_[index[3],:] + distance[3])
                 # Cdistance4 = (mds.dist_matrix_[index[4],:] + distance[4])
+                # Cdistance5 = (mds.dist_matrix_[index[5],:] + distance[5])
+                # Cdistance6 = (mds.dist_matrix_[index[6],:] + distance[6])
+                # Cdistance7 = (mds.dist_matrix_[index[7],:] + distance[7])
+                # Cdistance8 = (mds.dist_matrix_[index[8],:] + distance[8])
+                # Cdistance9 = (mds.dist_matrix_[index[9],:] + distance[9])
+                #
+                #
+                # Cdistance = np.array([Cdistance0,Cdistance1,Cdistance2]).min(axis=0)
 
-                for ii in range(len(mds.dist_matrix_)):
-                    Cdistance[ii] = self.findmin(mds.dist_matrix_[index[0],ii] + distance[0], mds.dist_matrix_[index[1],ii] + distance[1], mds.dist_matrix_[index[2],ii] + distance[2])
+
+                # Cdistance3 = (mds.dist_matrix_[index[3],:] + distance[3])
+                # Cdistance4 = (mds.dist_matrix_[index[4],:] + distance[4])
+
+
+                # Cdistance  = (mds.dist_matrix_[index[0],:] + mds.dist_matrix_[index[1],:] + mds.dist_matrix_[index[2],:]) / 3.0
+
 
 
                 Cdistance = Cdistance ** 2
@@ -490,26 +505,28 @@ class SOMPlot:
                 node_image[i,j] = (np.asmatrix(coleighVector) * theta.T)[0,0]
                 dict[tuple(image[i,j])] = node_image[i,j]
 
-                if node_image[i,j] < min:
-                    min = node_image[i,j]
-                if node_image[i,j] > max:
-                    max = node_image[i,j]
+                if node_image[i,j] < min_my:
+                    min_my = node_image[i,j]
+                if node_image[i,j] > max_my:
+                    max_my = node_image[i,j]
 
             # print i
-        print min
-        print max
-        print node_image
+        # print min
+        # print max
+        # print node_image
         print 'cost time :' + str(time.time() - before)
+
         for i in range(h):
             for j in range(w):
-                node_image[i, j] =  (node_image[i, j] - min) / float((max - min))
+                node_image[i, j] =  (node_image[i, j] - min_my) / float((max_my - min_my))
                 node_image2[i,j] = 1 - node_image[i, j]
 
 
         return node_image, node_image2
 
-    def findmin(self, a, b, c, d,e):
-        return min(a,b,c,d,e)
+
+    # def findmin(self, a, b):
+    #     return min(a,b)
     def findmin(self, a, b, c):
         return min(a,b,c)
     # def findmin(self, a, b):
