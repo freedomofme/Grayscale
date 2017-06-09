@@ -55,7 +55,7 @@ Temporary Items
 *.sublime-workspace
 
 # Datasets
-som_cm/datasets/*/*
+
 som_cm/datasets/.cache/*
 som_cm/.cache/*
 
