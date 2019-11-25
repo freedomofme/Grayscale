@@ -11,10 +11,6 @@ import numpy as np
 from som_cm.core.color_pixels import ColorPixels
 from som_cm.core.hist_common import *
 
-
-
-
-
 class Hist3D:
     ## Constructor
     #  @param image          input image.
@@ -74,7 +70,6 @@ class Hist3D:
     def _computeTargetPixels(self, image, color_space):
         color_pixels = ColorPixels(image,num_pixels = 2000)
         # print color_pixels.pixels()
-        print '***'
         self._pixels = color_pixels.pixels(color_space)
 
         # bl=self._pixels==[100,0,0]
@@ -82,8 +77,6 @@ class Hist3D:
         # ind=np.nonzero(bl)[0]
         # self._pixels = np.delete(self._pixels,ind,axis=0)
 
-        print '******2'
-        print self._pixels
         self._rgb_pixels = color_pixels.rgb()
 
 
@@ -101,13 +94,12 @@ class Hist3D:
 
         c_min = np.zeros(cs)
         c_max = np.zeros(cs)
-        for ci in xrange(cs):
+        for ci in range(cs):
             #pixels中的:表示任意行，ci表示ci列
             c_min[ci] = np.min(pixels[:, ci])
             c_max[ci] = np.max(pixels[:, ci])
 
         self._color_range = [c_min, c_max]
-        print self._color_range
 
     def _computeHistogram(self):
         pixels = self._pixels
@@ -151,7 +143,7 @@ class Hist3D:
         #  False False False False]
 
 
-        for ci in xrange(3):
+        for ci in range(3):
             color_bins[hist_positive, ci] /= self._hist_bins[hist_positive]
       # print color_bins 记录了更具体的数据
       #   [[[ 0.12810458  0.15294118  0.18954249]

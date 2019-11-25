@@ -34,10 +34,6 @@ def colorCoordinates2(color_ids, num_bins, color_range, pixels, _old_colorId):
     for index, data in enumerate(_old_colorId):
         if data in s:
             newP = np.row_stack((newP, pixels[index]))
-    print '$$$'
-    print len(color_ids)
-    print len(newP)
-    print len(pixels)
     return newP
 
 
@@ -64,7 +60,7 @@ def clipLowDensity(hist_bins, color_bins, alpha):
     low_density = hist_bins < density_mean * alpha
     hist_bins[low_density] = 0.0
 
-    for ci in xrange(3):
+    for ci in range(3):
         color_bins[low_density, ci] = 0.0
 
 

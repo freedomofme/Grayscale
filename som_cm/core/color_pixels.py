@@ -10,7 +10,6 @@ import numpy as np
 
 from som_cm.cv.image import to32F, rgb2Lab, rgb2hsv, gray2rgb
 
-
 ## Implementation of color pixels.
 #
 #  input image is automatically converted into np.float32 format.
@@ -66,7 +65,7 @@ class ColorPixels:
             return image.reshape((h * w))[::step]
 
         h, w, cs = image.shape
-        step = h * w / self._num_pixels
+        step = int(h * w / self._num_pixels)
         return image.reshape((-1, cs))[::step]
 
 

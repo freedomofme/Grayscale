@@ -64,4 +64,5 @@ som_cm/.cache/*
 doxygen/api_doc/*
 doxygen/*.bat
 
-main2.py
+./idea
+

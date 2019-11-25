@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-## @package som_cm.results.som_single_image
-#
-#  Demo for single image.
-#  @author      tody
-#  @date        2015/08/31
 
 import os
 import numpy as np
@@ -11,38 +6,17 @@ import matplotlib.pyplot as plt
 from som_cm.core.color_pixels import ColorPixels
 from mpl_toolkits.mplot3d import Axes3D
 
-
 from som_cm.io_util.image import loadRGB
-from som_cm.results.resu import batchResults, resultFile
 from som_cm.core.hist_3d import Hist3D
 from som_cm.core.som import SOMParam, SOM, SOMPlot
 
 ## Setup SOM in 1D and 2D for the target image.
 def setupSOM(image, random_seed=100, num_samples=2000):
     np.random.seed(random_seed)
-
     hist3D = Hist3D(image, num_bins=16)
-    # 为了灰度化而生成流形，所以不需要采用hist3D.colorCoordinates()
-    # samples = hist3D.colorCoordinates()
-
     samples = hist3D._pixels
-    print len(hist3D._pixels)
-
-    # 删除白色像素点
-    # bl=samples==[255,255,255]
-    # bl=np.any(bl,axis=1)
-    # ind=np.nonzero(bl)[0]
-    # samples = np.delete(samples,ind,axis=0)
-    # print len(samples)
-    #
-    # bl=samples==[254,255,255]
-    # bl=np.any(bl,axis=1)
-    # ind=np.nonzero(bl)[0]
-    # samples = np.delete(samples,ind,axis=0)
-
-
     #1000
-    print len(samples)
+    print(len(samples))
 
     param1D = SOMParam(h=64, dimension=1)
     som1D = SOM(samples, param1D)
@@ -53,21 +27,14 @@ def setupSOM(image, random_seed=100, num_samples=2000):
 
 
 ## Demo for the single image file.
-def singleImageResult(image_file):
-    print image_file
-    image_name = os.path.basename(image_file)
-    image_name = os.path.splitext(image_name)[0]
-
+def color_to_gray_debug(image_file, gray_name, gray_reverse_name, debug):
     image = loadRGB(image_file)
-    import time
-    start = time.time()
 
     som1D, som2D = setupSOM(image)
 
     fig = plt.figure(figsize=(12, 10))
     fig.subplots_adjust(left=0.05, bottom=0.05, right=0.95, top=0.9, wspace=0.1, hspace=0.2)
 
-    print time.time() - start
     font_size = 15
     fig.suptitle("SOM-Color Manifolds for Single Image", fontsize=font_size)
 
@@ -77,10 +44,10 @@ def singleImageResult(image_file):
     plt.imshow(image)
     plt.axis('off')
 
-    print "  - Train 1D"
+    print("  - Train 1D")
     som1D.trainAll()
 
-    print "  - Train 2D"
+    print("  - Train 2D")
     som2D.trainAll()
 
     som1D_plot = SOMPlot(som1D)
@@ -127,8 +94,8 @@ def singleImageResult(image_file):
 
     plt.imshow(a, cmap='gray', vmin = 0, vmax = 1)
     plt.axis('off')
-    plt.imsave('''./''' + image_name + '''.png''', a, cmap='gray',vmin = 0, vmax = 1)
-    plt.imsave('''./''' + image_name + '''!.png''', b, cmap='gray',vmin = 0, vmax = 1)
+    plt.imsave(resultFile(gray_name), a, cmap='gray',vmin = 0, vmax = 1)
+    plt.imsave(resultFile(gray_reverse_name), b, cmap='gray',vmin = 0, vmax = 1)
 
 
     plt.subplot(339)
@@ -136,17 +103,13 @@ def singleImageResult(image_file):
     plt.imshow(b, cmap='gray', vmin = 0, vmax = 1)
     plt.axis('off')
 
-    result_file = resultFile("%s_single" % image_name)
+    result_file = resultFile("%s_debug" % gray_name)
     plt.savefig(result_file)
-    #showMaximize()
 
-
-## Demo for the given data names, ids.
-def singleImageResults(data_names, data_ids):
-    batchResults(data_names, data_ids, singleImageResult, "SOM (single image)")
+def resultFile(image_name, image_ext=".png"):
+    result_file = os.path.join(os.path.dirname(__file__), image_name + image_ext)
+    return result_file
 
 if __name__ == '__main__':
-    data_names = ["apple"]
-    data_ids = range(9)
-
-    singleImageResults(data_names, data_ids)
+    color_to_gray_debug('/Users/hhx/PycharmProjects/Grayscale/som_cm/datasets/apple/apple_0.png',
+                      gray_name='gray', gray_reverse_name='gray_reverse', debug=True)

@@ -47,7 +47,6 @@ class SOM:
         self._L0 = param.L0
 
         self._nodes = self._initialNode(param.h, param.dimension)
-        print '!!!!!'
         # print  self._nodes
 
         num_samples = self.numSamples()
@@ -331,7 +330,7 @@ class SOMPlot:
 
         #只需要一行，因为有很多行一样的
         nodeOriginData = cv2.cvtColor(np.float32(node_image), cv2.COLOR_LAB2RGB)[0, :, :]
-        print nodeOriginData
+        print(nodeOriginData)
         # from sklearn import manifold
         # mds = manifold.MDS(n_components=1)
         # Xtrans = mds.fit_transform(nodeOriginData.astype(np.float64))
@@ -341,10 +340,9 @@ class SOMPlot:
         gray = rgb2gray(image)
         lmin = np.min(gray)
         lmax = np.max(gray)
-        print '@@@'
 
-        print image.shape
-        print image.dtype
+        print(image.shape)
+        print(image.dtype)
 
         h = image.shape[0]
         w = image.shape[1]
@@ -356,8 +354,6 @@ class SOMPlot:
                 smallestValue = 1 << 31
                 smallestIndex = 0
                 for k in range(len(nodeOriginData)):
-                    global smallestIndex
-                    global smallestValue
                     # node_image[i, j] = 0.3 * image[i, j][0] + 0.59 * image[i, j][1] + 0.11 * image[i, j][2]
                     temp = self.distance(image[i, j], nodeOriginData[k])
                     # if i == 100 and j == 100:
@@ -368,8 +364,6 @@ class SOMPlot:
 
                 # print smallestIndex
                 node_image[i, j] =  1 - (float(smallestIndex) / len(nodeOriginData) * (lmax - lmin) + lmin)
-            print 'true: ' + str(smallestIndex)
-            print i
 
 
         # temp = rgb2gray(image)
@@ -392,7 +386,6 @@ class SOMPlot:
         image = rgb2Lab(image)
         if fold == None:
             fold = self._som.nodeImage()
-            print fold * 255
             fold = to32F(fold * 255)
             fold = rgb2Lab(fold)
         X = fold.reshape((-1, 3))
@@ -514,7 +507,7 @@ class SOMPlot:
         # print min
         # print max
         # print node_image
-        print 'cost time :' + str(time.time() - before)
+        print('cost time :' + str(time.time() - before))
 
         for i in range(h):
             for j in range(w):
@@ -525,9 +518,5 @@ class SOMPlot:
         return node_image, node_image2
 
 
-    # def findmin(self, a, b):
-    #     return min(a,b)
     def findmin(self, a, b, c):
         return min(a,b,c)
-    # def findmin(self, a, b):
-    #     return min(a,b)
