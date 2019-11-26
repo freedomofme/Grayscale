@@ -204,10 +204,6 @@ class SOM:
         # T是一个根据D计算出来的影响范围
         T = self._neighborhoodFunction(t, D)
 
-        # print '--'
-        # print L
-        # print T
-
         # update nodes
         # print self._nodes
         for ci in range(3):
@@ -466,30 +462,6 @@ class SOMPlot:
                     CdistanceAll = np.vstack((CdistanceAll, mds.dist_matrix_[index[kIndex],:] + distance[kIndex]))
 
                 Cdistance = CdistanceAll.min(axis=0)
-
-                # Cdistance0 = (mds.dist_matrix_[index[0],:] + distance[0])
-                # Cdistance1 = (mds.dist_matrix_[index[1],:] + distance[1])
-                # Cdistance2 = (mds.dist_matrix_[index[2],:] + distance[2])
-                # Cdistance3 = (mds.dist_matrix_[index[3],:] + distance[3])
-                # Cdistance4 = (mds.dist_matrix_[index[4],:] + distance[4])
-                # Cdistance5 = (mds.dist_matrix_[index[5],:] + distance[5])
-                # Cdistance6 = (mds.dist_matrix_[index[6],:] + distance[6])
-                # Cdistance7 = (mds.dist_matrix_[index[7],:] + distance[7])
-                # Cdistance8 = (mds.dist_matrix_[index[8],:] + distance[8])
-                # Cdistance9 = (mds.dist_matrix_[index[9],:] + distance[9])
-                #
-                #
-                # Cdistance = np.array([Cdistance0,Cdistance1,Cdistance2]).min(axis=0)
-
-
-                # Cdistance3 = (mds.dist_matrix_[index[3],:] + distance[3])
-                # Cdistance4 = (mds.dist_matrix_[index[4],:] + distance[4])
-
-
-                # Cdistance  = (mds.dist_matrix_[index[0],:] + mds.dist_matrix_[index[1],:] + mds.dist_matrix_[index[2],:]) / 3.0
-
-
-
                 Cdistance = Cdistance ** 2
 
                 theta = Cdistance - MeanLc
@@ -503,10 +475,7 @@ class SOMPlot:
                 if node_image[i,j] > max_my:
                     max_my = node_image[i,j]
 
-            # print i
-        # print min
-        # print max
-        # print node_image
+
         print('cost time :' + str(time.time() - before))
 
         for i in range(h):
