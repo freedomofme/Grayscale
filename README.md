@@ -11,6 +11,9 @@
 使用方法:
 ===
 
+#### install
+    pip install SOMGraySclae==1.0.1
+
 ##### 获取灰度图
     gray, gray_reverse = som.get_gray_scal(os.path.dirname(__file__) + '/datasets/apple/apple_0.png')
     plt.imsave(os.path.dirname(__file__) + '/gray.png', gray, cmap='gray',vmin = 0, vmax = 1)
@@ -35,18 +38,20 @@
 
 #### 输入图像：
 
-![](./som_cm/datasets/apple/apple_0.png)
+![](https://raw.githubusercontent.com/freedomofme/Grayscale/master//som_cm/datasets/apple/apple_0.png)
 
 #### 获取灰度图，输出图像：
 
-![](./som_cm/results/gray.png)
-![](./som_cm/results/gray_reverse.png)
+*
+![](https://raw.githubusercontent.com/freedomofme/Grayscale/master/som_cm/results/gray.png)
+*
+![](https://raw.githubusercontent.com/freedomofme/Grayscale/master/som_cm/results/gray_reverse.png)
 
 #### for debug:
-![](./som_cm/results/gray_debug.png)
+![](https://raw.githubusercontent.com/freedomofme/Grayscale/master/som_cm/results/gray_debug.png)
 
 #### 所有结果：
-![](./som_cm/results/result_all.png)
+![](https://raw.githubusercontent.com/freedomofme/Grayscale/master/som_cm/results/result_all.png)
 
 
 感谢

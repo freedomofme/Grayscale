@@ -2,21 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3246add4-6627-48f4-8a11-fbc33aa7a664" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/som_cm/som_gray_sclae.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SOMGraySclae.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SOMGraySclae.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SOMGraySclae.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SOMGraySclae.egg-info/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SOMGraySclae.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/SOMGraySclae-1.0.0-py3-none-any.whl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/SOMGraySclae-1.0.0.tar.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/som_cm/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/core/som.py" beforeDir="false" afterPath="$PROJECT_DIR$/som_cm/core/som.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/datasets/apple/apple_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/datasets/apple/apple_4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/datasets/apple/apple_5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/datasets/apple/apple_6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/datasets/apple/apple_7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/datasets/apple/apple_8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/gray.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/gray_debug.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/gray_reverse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/som_cm/single_image.py" beforeDir="false" />
     </list>
     <ignored path="SOM-ColorManifolds-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,6 +27,7 @@
     <SUITE FILE_PATH="coverage/SOM-ColorManifolds-master$main2.coverage" NAME="main2 Coverage Results" MODIFIED="1494865879112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/som_cm" />
     <SUITE FILE_PATH="coverage/SOM-ColorManifolds-master$single_image.coverage" NAME="single_image Coverage Results" MODIFIED="1497023949217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/som_cm/results" />
     <SUITE FILE_PATH="coverage/SOM_ColorManifolds_master$som.coverage" NAME="som Coverage Results" MODIFIED="1574673943587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/som_cm/core" />
+    <SUITE FILE_PATH="coverage/SOM_ColorManifolds_master$tt.coverage" NAME="tt Coverage Results" MODIFIED="1574768047553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SOM-ColorManifolds-master$main.coverage" NAME="main Coverage Results" MODIFIED="1495997175079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/som_cm" />
     <SUITE FILE_PATH="coverage/SOM_ColorManifolds_master$single_image.coverage" NAME="single_image Coverage Results" MODIFIED="1574767160172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/som_cm/results" />
   </component>
@@ -45,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/som_cm/som_gray_sclae.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="150" selection-start-line="150" selection-end-line="152" selection-end-column="98" />
+            <state relative-caret-position="499">
+              <caret line="143" column="22" selection-start-line="143" selection-start-column="10" selection-end-line="143" selection-end-column="22" />
               <folding>
                 <element signature="e#25#34#0" expanded="true" />
               </folding>
@@ -54,12 +51,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="238">
-                <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+              <first_editor relative-caret-position="219">
+                <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
               </first_editor>
               <second_editor />
             </state>
@@ -67,10 +64,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/som_cm/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/setup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+            <state relative-caret-position="454">
+              <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -78,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/som_cm/core/som.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5001">
-              <caret line="206" selection-start-line="206" selection-end-line="206" />
+            <state relative-caret-position="318">
+              <caret line="402" selection-start-line="402" selection-end-line="402" />
               <folding>
                 <element signature="e#127#136#0" expanded="true" />
               </folding>
@@ -88,6 +112,13 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -103,6 +134,7 @@
       <find>_node_image</find>
       <find>som1D_plot</find>
       <find>setupSOM</find>
+      <find>sklearn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,12 +152,14 @@
         <option value="$PROJECT_DIR$/som_cm/results/single_image.py" />
         <option value="$PROJECT_DIR$/som_cm/core/color_pixels.py" />
         <option value="$PROJECT_DIR$/som_cm/core/hist_3d.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/som_cm/core/som.py" />
         <option value="$PROJECT_DIR$/som_cm/single_image.py" />
         <option value="$PROJECT_DIR$/som_cm/__init__.py" />
         <option value="$PROJECT_DIR$/som_cm/som_gray_sclae.py" />
+        <option value="$PROJECT_DIR$/tt.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
@@ -150,25 +184,18 @@
             <path>
               <item name="SOM-ColorManifolds-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="Grayscale" type="462c0819:PsiDirectoryNode" />
-              <item name="som_cm" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SOM-ColorManifolds-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="Grayscale" type="462c0819:PsiDirectoryNode" />
-              <item name="som_cm" type="462c0819:PsiDirectoryNode" />
-              <item name="cv" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SOM-ColorManifolds-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="Grayscale" type="462c0819:PsiDirectoryNode" />
-              <item name="som_cm" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SOM-ColorManifolds-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Grayscale" type="462c0819:PsiDirectoryNode" />
-              <item name="som_cm" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -182,7 +209,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -197,8 +224,8 @@
       <recent name="$PROJECT_DIR$/som_cm" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/som_cm/results" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/som_cm/datasets/apple" />
     </key>
   </component>
@@ -214,7 +241,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.single_image">
+  <component name="RunManager" selected="Python.tt">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -323,6 +350,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SOM-ColorManifolds-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -337,9 +386,11 @@
       <item itemvalue="Python.main" />
       <item itemvalue="Python.main2" />
       <item itemvalue="Python.som" />
+      <item itemvalue="Python.tt" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tt" />
         <item itemvalue="Python.single_image" />
         <item itemvalue="Python.som" />
         <item itemvalue="Python.main" />
@@ -359,27 +410,27 @@
       <updated>1491935297691</updated>
       <workItem from="1574673666189" duration="1835000" />
       <workItem from="1574675517298" duration="1492000" />
-      <workItem from="1574752911525" duration="3667000" />
+      <workItem from="1574752911525" duration="6216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6994000" />
+    <option name="totallyTimeSpent" value="9543000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="12" y="31" width="1641" height="1019" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18239392" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18239392" />
       <window_info id="Structure" order="1" weight="0.24964234" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32845894" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26771653" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26771653" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27334082" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2710911" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Application Servers" order="10" />
@@ -428,10 +479,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/som_cm/results/apple_6!.png" />
-    <entry file="file://$PROJECT_DIR$/som_cm/results/apple_5_single.png" />
-    <entry file="file://$PROJECT_DIR$/som_cm/results/apple_56_single.png" />
-    <entry file="file://$PROJECT_DIR$/som_cm/results/multi_images.py" />
     <entry file="file://$PROJECT_DIR$/som_cm/results/apple_1.png" />
     <entry file="file://$PROJECT_DIR$/som_cm/results/apple_1_single.png" />
     <entry file="file://$PROJECT_DIR$/som_cm/results/apple_2!.png" />
@@ -461,13 +508,6 @@
     <entry file="file://$PROJECT_DIR$/som_cm/results/apple_0.png" />
     <entry file="file://$PROJECT_DIR$/som_cm/results/apple_0!.png" />
     <entry file="file://$PROJECT_DIR$/som_cm/apple_0.png" />
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/som_cm/core/hist_common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
@@ -547,32 +587,8 @@
     <entry file="file://$PROJECT_DIR$/som_cm/results/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/som_cm/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/som_cm/results/result_all.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/som_cm/core/som.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5001">
-          <caret line="206" selection-start-line="206" selection-end-line="206" />
-          <folding>
-            <element signature="e#127#136#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../learn_scikit/env/lib/python3.7/site-packages/matplotlib/pyplot.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -585,27 +601,82 @@
     <entry file="file://$PROJECT_DIR$/som_cm/manifest_1d.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/som_cm/som_gray_sclae.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="150" selection-start-line="150" selection-end-line="152" selection-end-column="98" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/som_cm/manifest_2d.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/som_cm/result.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/som_cm/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../learn_scikit/env/lib/python3.7/site-packages/setuptools-39.1.0-py3.7.egg!/setuptools/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../learn_scikit/env/lib/python3.7/site-packages/sklearn/manifold/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/som_cm/core/som.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="402" selection-start-line="402" selection-end-line="402" />
+          <folding>
+            <element signature="e#127#136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/som_cm/som_gray_sclae.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="143" column="22" selection-start-line="143" selection-start-column="10" selection-end-line="143" selection-end-column="22" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="238">
-            <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <first_editor relative-caret-position="219">
+            <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
           </first_editor>
           <second_editor />
         </state>
@@ -613,6 +684,13 @@
       <provider editor-type-id="text-editor">
         <state>
           <caret line="24" column="13" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
         </state>
       </provider>
     </entry>
